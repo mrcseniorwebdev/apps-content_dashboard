@@ -12,7 +12,7 @@ console.log(privateKey)
 export const oauth2client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
-    "http://localhost:5173/contentdashboard/auth/callback/google"
+    "htts://apps.mrc.org/contentdashboard/auth/callback/google"
 )
 
 //generate the url endpoint we will use to contact google

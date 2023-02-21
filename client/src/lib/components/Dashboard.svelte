@@ -29,7 +29,7 @@
 
 	onMount(() => {
 		console.log(io());
-		const socket = io('ws://localhost:3001');
+		const socket = io('ws://content_dashboard_server:3001');
 		socket.on('update_items', (data) => {
 			console.log({ data });
 			console.log('1', content_data);
