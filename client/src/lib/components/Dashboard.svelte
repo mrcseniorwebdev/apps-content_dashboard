@@ -43,7 +43,7 @@
 		let confirm = window.confirm(`Are you sure you want to delete:\n\n${objToDelete.title}`);
 		if (confirm) {
 			console.log(objToDelete);
-			await fetch('https://4602-8-18-52-2.ngrok.io/contentdashboard/api/post', {
+			await fetch('https://apps.mrc.org/contentdashboard/api/post', {
 				method: 'DELETE',
 				headers: {
                     'Accept': 'application/json',
@@ -61,7 +61,7 @@
         else{
             objToPatch.social_media.push(key)
         }
-        await fetch('https://4602-8-18-52-2.ngrok.io/contentdashboard/api/post', {
+        await fetch('https://apps.mrc.org/contentdashboard/api/post', {
 				method: 'PATCH',
 				headers: {
                     'Accept': 'application/json',

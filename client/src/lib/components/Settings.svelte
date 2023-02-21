@@ -7,7 +7,7 @@
 
 	const getUsers = async () => {
 		try {
-			const response = await fetch(`https://4602-8-18-52-2.ngrok.io/contentdashboard/api/user`);
+			const response = await fetch(`https://apps.mrc.org/contentdashboard/api/user`);
 			return await response.json();
 		} catch (err) {
 			console.error(err);
@@ -18,7 +18,7 @@
 	const deleteUsers = async (id) => {
 		try {
 			const response = await fetch(
-				`https://4602-8-18-52-2.ngrok.io/contentdashboard/api/user/${id}`,
+				`https://apps.mrc.org/contentdashboard/api/user/${id}`,
 				{
 					method: 'DELETE'
 				}
@@ -52,7 +52,7 @@
 		}
 
 		try {
-			const response = await fetch(`https://4602-8-18-52-2.ngrok.io/contentdashboard/api/user`, {
+			const response = await fetch(`https://apps.mrc.org/contentdashboard/api/user`, {
 				method: 'POST',
 				headers: {
 					Accept: 'application/json',
