@@ -1,0 +1,110 @@
+// @import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital;wght@0;400;0;700;1;400;1;700&display=swap);
+
+:root {
+    font-family: "Open Sans, sans-serif";
+    // Primary
+    --magenta-050: #f5e1f7;
+    --magenta-100: #ecbdf2;
+    --magenta-200: #ce80d9;
+    --magenta-300: #bb61c7;
+    --magenta-400: #ad4bb8;
+    --magenta-500: #a23dad;
+    --magenta-600: #90279c;
+    --magenta-700: #7c1a87;
+    --magenta-800: #671270;
+    --magenta-900: #4e0754;
+
+    --orange-vivid-050: #ffe8d9;
+    --orange-vivid-100: #ffd0b5;
+    --orange-vivid-200: #ffb088;
+    --orange-vivid-300: #ff9466;
+    --orange-vivid-400: #f9703e;
+    --orange-vivid-500: #f35627;
+    --orange-vivid-600: #de3a11;
+    --orange-vivid-700: #c52707;
+    --orange-vivid-800: #ad1d07;
+    --orange-vivid-900: #841003;
+
+    // Neutrals
+    --blue-grey-050: #f0f4f8;
+    --blue-grey-100: #d9e2ec;
+    --blue-grey-200: #bcccdc;
+    --blue-grey-300: #9fb3c8;
+    --blue-grey-400: #829ab1;
+    --blue-grey-500: #627d98;
+    --blue-grey-600: #486581;
+    --blue-grey-700: #334e68;
+    --blue-grey-800: #243b53;
+    --blue-grey-900: #102a43;
+
+    // Supporting
+    --yellow-vivid-050: #fffbea;
+    --yellow-vivid-100: #fff3c4;
+    --yellow-vivid-200: #fce588;
+    --yellow-vivid-300: #fadb5f;
+    --yellow-vivid-400: #f7c948;
+    --yellow-vivid-500: #f0b429;
+    --yellow-vivid-600: #de911d;
+    --yellow-vivid-700: #cb6e17;
+    --yellow-vivid-800: #b44d12;
+    --yellow-vivid-900: #8d2b0b;
+
+    --red-vivid-050: #ffe3e3;
+    --red-vivid-100: #ffbdbd;
+    --red-vivid-200: #ff9b9b;
+    --red-vivid-300: #f86a6a;
+    --red-vivid-400: #ef4e4e;
+    --red-vivid-500: #e12d39;
+    --red-vivid-600: #cf1124;
+    --red-vivid-700: #ab091e;
+    --red-vivid-800: #8a041a;
+    --red-vivid-900: #610316;
+
+    --green-vivid-050: #e3f9e5;
+    --green-vivid-100: #c1f2c7;
+    --green-vivid-200: #91e697;
+    --green-vivid-300: #51ca58;
+    --green-vivid-400: #31b237;
+    --green-vivid-500: #18981d;
+    --green-vivid-600: #0f8613;
+    --green-vivid-700: #0e7817;
+    --green-vivid-800: #07600e;
+    --green-vivid-900: #014807;
+
+    //mrc colours
+    --nb: #ee7624;
+    --cns: #002f87;
+    --tv: #333f48;
+    --mrc: #003087;
+    --culture: #8f2829;
+    --business: #4a7628;
+    --latino: #b3272d;
+    --fsam: #2226ce;
+
+    font-size: 16px;
+    color: var(--cool-grey-900);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    background-color: var(--blue-grey-050);
+}
+
+// .container {
+//     max-width: 1200px;
+//     margin-inline: auto;
+// }
+
+// body {
+
+// }
