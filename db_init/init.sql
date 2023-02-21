@@ -26,4 +26,4 @@ create table if not exists content_queue (
     PRIMARY KEY (id)
 );
 
--- INSERT INTO users (email) VALUES ('jjones@mrc.org');
+INSERT INTO users (email) VALUES ('jjones@mrc.org');

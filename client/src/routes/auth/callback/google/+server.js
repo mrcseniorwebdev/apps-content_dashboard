@@ -17,25 +17,39 @@ export async function GET({ url }) {
             method: "GET"
         })
 
-        console.log({profileData})
+        console.log({ profileData })
 
         //Checks to see if the returned data from 
         //google is an allowed email in our Database
         let userData = await confirmUserLogin(profileData)
         console.log({ userData })
 
-        //creates special token so we can identify this user/session
-        let token = generateToken(userData.id)
+        if (userData) {
 
-        //upon all this success, redirect the user to the dashboard with 
-        //thire special token set as a cookie header
-        return new Response(null, {
-            status: 302,
-            headers: {
-                'Location': `/contentdashboard/dashboard`,
-                'Set-Cookie': `authToken=${token};Path=/;HttpOnly;`
 
-            }
-        })
+            //creates special token so we can identify this user/session
+            let token = generateToken(userData.id)
+
+            //upon all this success, redirect the user to the dashboard with 
+            //thire special token set as a cookie header
+            return new Response(null, {
+                status: 302,
+                headers: {
+                    'Location': `/contentdashboard/dashboard`,
+                    'Set-Cookie': `authToken=${token};Path=/;HttpOnly;`
+
+                }
+            })
+
+        }
+        else {
+            return new Response(null, {
+                status: 302,
+                headers: {
+                    'Location': '/contentdashboard/auth',
+                    'Set-Cookie': 'authToken=;Path=/;HttpOnly'
+                }
+            })
+        }
     }
 }
