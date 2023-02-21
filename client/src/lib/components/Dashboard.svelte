@@ -29,12 +29,10 @@
 
 	onMount(() => {
 		console.log(io());
-		const socket = io('ws://content_dashboard_server:3001');
+		const socket = io('ws://0.0.0.0:3001');
 		socket.on('update_items', (data) => {
 			console.log({ data });
-			console.log('1', content_data);
 			content_data = data;
-			console.log('2', content_data);
 		});
 	});
 	console.log('3', content_data);
@@ -46,7 +44,7 @@
 			await fetch('https://apps.mrc.org/contentdashboard/api/post', {
 				method: 'DELETE',
 				headers: {
-                    'Accept': 'application/json',
+					Accept: 'application/json',
 					'Content-type': 'application/json; charset=UTF-8' // Indicates the content
 				},
 				body: JSON.stringify(objToDelete)
@@ -54,22 +52,21 @@
 		}
 	};
 
-    const handleSocial = async (objToPatch, key) => {
-        if(objToPatch.social_media.includes(key)){
-            objToPatch.social_media = objToPatch.social_media.filter(elem => elem != key)
-        }
-        else{
-            objToPatch.social_media.push(key)
-        }
-        await fetch('https://apps.mrc.org/contentdashboard/api/post', {
-				method: 'PATCH',
-				headers: {
-                    'Accept': 'application/json',
-					'Content-type': 'application/json; charset=UTF-8' // Indicates the content
-				},
-				body: JSON.stringify(objToPatch)
-			});
-    }
+	const handleSocial = async (objToPatch, key) => {
+		if (objToPatch.social_media.includes(key)) {
+			objToPatch.social_media = objToPatch.social_media.filter((elem) => elem != key);
+		} else {
+			objToPatch.social_media.push(key);
+		}
+		await fetch('https://apps.mrc.org/contentdashboard/api/post', {
+			method: 'PATCH',
+			headers: {
+				Accept: 'application/json',
+				'Content-type': 'application/json; charset=UTF-8' // Indicates the content
+			},
+			body: JSON.stringify(objToPatch)
+		});
+	};
 </script>
 
 <div class="grid">
@@ -126,19 +123,19 @@
 						<Facebook />
 						<ul>
 							<li>
-								<button id="fnb" on:click={() => handleSocial(content, "fnb")}>NewsBusters</button>
+								<button id="fnb" on:click={() => handleSocial(content, 'fnb')}>NewsBusters</button>
 							</li>
 							<li>
-								<button id="fcns" on:click={() => handleSocial(content, "fcns")}>CNSNews</button>
+								<button id="fcns" on:click={() => handleSocial(content, 'fcns')}>CNSNews</button>
 							</li>
 							<li>
-								<button id="ftv" on:click={() => handleSocial(content, "ftv")}>MRCTV</button>
+								<button id="ftv" on:click={() => handleSocial(content, 'ftv')}>MRCTV</button>
 							</li>
 							<li>
-								<button id="ffsa" on:click={() => handleSocial(content, "ffsa")}>FSAM</button>
+								<button id="ffsa" on:click={() => handleSocial(content, 'ffsa')}>FSAM</button>
 							</li>
 							<li>
-								<button id="fmrc" on:click={() => handleSocial(content, "fmrc")}>MRC</button>
+								<button id="fmrc" on:click={() => handleSocial(content, 'fmrc')}>MRC</button>
 							</li>
 						</ul>
 					</div>
@@ -146,19 +143,19 @@
 						<Twitter />
 						<ul>
 							<li>
-								<button id="tnb" on:click={() => handleSocial(content, "tnb")}>NewsBusters</button>
+								<button id="tnb" on:click={() => handleSocial(content, 'tnb')}>NewsBusters</button>
 							</li>
 							<li>
-								<button id="tcns" on:click={() => handleSocial(content, "tcns")}>CNSNews</button>
+								<button id="tcns" on:click={() => handleSocial(content, 'tcns')}>CNSNews</button>
 							</li>
 							<li>
-								<button id="ttv" on:click={() => handleSocial(content, "ttv")}>MRCTV</button>
+								<button id="ttv" on:click={() => handleSocial(content, 'ttv')}>MRCTV</button>
 							</li>
 							<li>
-								<button id="tfsa" on:click={() => handleSocial(content, "tfsa")}>FSAM</button>
+								<button id="tfsa" on:click={() => handleSocial(content, 'tfsa')}>FSAM</button>
 							</li>
 							<li>
-								<button id="tmrc" on:click={() => handleSocial(content, "tmrc")}>MRC</button>
+								<button id="tmrc" on:click={() => handleSocial(content, 'tmrc')}>MRC</button>
 							</li>
 						</ul>
 					</div>
@@ -343,66 +340,66 @@
 							}
 						}
 					}
-                    &.fnb{
-                        #fnb{
-                            font-weight: bold;
-                            color: var(--nb);
-                        }
-                    }
-                    &.fcns{
-                        #fcns{
-                            font-weight: bold;
-                            color: var(--cns);
-                        }
-                    }
-                    &.ftv{
-                        #ftv{
-                            font-weight: bold;
-                            color: var(--tv);
-                        }
-                    }
-                    &.ffsa{
-                        #ffsa{
-                            font-weight: bold;
-                            color: var(--fsam);
-                        }
-                    }
-                    &.fmrc{
-                        #fmrc{
-                            font-weight: bold;
-                            color: var(--mrc);
-                        }
-                    }
-                    &.tnb{
-                        #tnb{
-                            font-weight: bold;
-                            color: var(--nb);
-                        }
-                    }
-                    &.tcns{
-                        #tcns{
-                            font-weight: bold;
-                            color: var(--cns);
-                        }
-                    }
-                    &.ttv{
-                        #ttv{
-                            font-weight: bold;
-                            color: var(--tv);
-                        }
-                    }
-                    &.tfsa{
-                        #tfsa{
-                            font-weight: bold;
-                            color: var(--fsam);
-                        }
-                    }
-                    &.tmrc{
-                        #tmrc{
-                            font-weight: bold;
-                            color: var(--mrc);
-                        }
-                    }
+					&.fnb {
+						#fnb {
+							font-weight: bold;
+							color: var(--nb);
+						}
+					}
+					&.fcns {
+						#fcns {
+							font-weight: bold;
+							color: var(--cns);
+						}
+					}
+					&.ftv {
+						#ftv {
+							font-weight: bold;
+							color: var(--tv);
+						}
+					}
+					&.ffsa {
+						#ffsa {
+							font-weight: bold;
+							color: var(--fsam);
+						}
+					}
+					&.fmrc {
+						#fmrc {
+							font-weight: bold;
+							color: var(--mrc);
+						}
+					}
+					&.tnb {
+						#tnb {
+							font-weight: bold;
+							color: var(--nb);
+						}
+					}
+					&.tcns {
+						#tcns {
+							font-weight: bold;
+							color: var(--cns);
+						}
+					}
+					&.ttv {
+						#ttv {
+							font-weight: bold;
+							color: var(--tv);
+						}
+					}
+					&.tfsa {
+						#tfsa {
+							font-weight: bold;
+							color: var(--fsam);
+						}
+					}
+					&.tmrc {
+						#tmrc {
+							font-weight: bold;
+							color: var(--mrc);
+						}
+					}
 				}
 
 				&.remove {
