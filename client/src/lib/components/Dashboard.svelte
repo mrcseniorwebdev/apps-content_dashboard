@@ -34,15 +34,15 @@
 			const socket = io('wss://apps.mrc.org/contentdashboard/socket', {path: '/contentdashboard/socketio'});
 			// const socket = io('/contentdashboard/socket.io');
 			// const socket = io('wss://apps.mrc.org/contentdashboard/socket.io');
+			socket.on('update_items', (data) => {
+				console.log({ data });
+				content_data = data;
+			});
 		}
 		catch(err){
 			console.log('erra')
 			console.error(err)
 		}
-		socket.on('update_items', (data) => {
-			console.log({ data });
-			content_data = data;
-		});
 	});
 	console.log('3', content_data);
 
