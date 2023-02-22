@@ -142,11 +142,11 @@
 					justify-content: center;
 					align-items: center;
 					cursor: pointer;
-					&:hover {
-						svg {
-							opacity: 0.5;
-						}
-					}
+					// &:hover {
+					// 	svg {
+					// 		opacity: 0.5;
+					// 	}
+					// }
 				}
 			}
 		}
