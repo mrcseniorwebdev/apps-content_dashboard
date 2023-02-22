@@ -2,6 +2,8 @@
 
 :root {
     font-family: "Open Sans, sans-serif";
+
+    --font-family: "Open Sans, sans-serif"
     // Primary
     --magenta-050: #f5e1f7;
     --magenta-100: #ecbdf2;
@@ -89,6 +91,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font-family);
 }
 
 img {
