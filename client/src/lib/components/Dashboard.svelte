@@ -30,7 +30,7 @@
 	onMount(() => {
 		try{
 
-			console.log(io());
+			// console.log(io());
 			const socket = io({path: '/contentdashboard/socketio'});
 			// const socket = io('/contentdashboard/socket.io');
 			// const socket = io('wss://apps.mrc.org/contentdashboard/socket.io');
