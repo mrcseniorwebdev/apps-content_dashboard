@@ -29,7 +29,7 @@
 
 	onMount(() => {
 		console.log(io());
-		const socket = io('ws://content_dashboard_server:3001');
+		const socket = io('https://apps.mrc.org/contentdashboard/socket', {path: '/contentdashboard/socketio'});
 		// const socket = io('/contentdashboard/socket.io');
 		// const socket = io('wss://apps.mrc.org/contentdashboard/socket.io');
 		socket.on('update_items', (data) => {

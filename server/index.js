@@ -6,7 +6,7 @@ const app = express()
 require('express-async-errors')
 
 const server = createServer(app);
-const io = socketIo(server, { cors: { origin: "*" } }); // you can change the cors to your own domain
+const io = socketIo(server, { cors: { origin: "*" }, path: '/contentdashboard/socketio' }); // you can change the cors to your own domain
 
 
 const postRouter = require('./controllers/post')
