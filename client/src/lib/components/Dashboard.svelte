@@ -217,7 +217,7 @@
 		&--row {
 			display: grid;
 			// grid-template-columns: auto auto 60ch auto auto 1fr;
-			grid-template-columns: 14px 19px 60ch 8rem 23rem 1fr;
+			grid-template-columns: 14px 19px 60ch 9rem 23rem 1fr;
 			padding: 1.5rem 1rem;
 			column-gap: 2rem;
 			&:nth-child(odd) {
