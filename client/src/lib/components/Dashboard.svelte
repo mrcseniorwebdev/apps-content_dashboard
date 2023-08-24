@@ -389,7 +389,6 @@
 					}
 					@media screen and (min-width: 1555px) {
 						grid-area: unset;
-						align-self: center;
 					}
 					.title {
 						text-decoration: none;
