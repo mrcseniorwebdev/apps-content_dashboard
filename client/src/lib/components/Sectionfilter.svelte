@@ -25,6 +25,12 @@
 </script>
 
 <div class="sectionFilter">
+	<label for="sectionFilter">Section:</label>
+	<select id="sectionFilter" on:change={(e) => handleFilterChange(e.target.value)}>
+		{#each Object.entries(sectionMap) as [key, value]}
+			<option value={key}>{value}</option>
+		{/each}
+	</select>
 	<ul>
 		{#each Object.entries(sectionMap) as [key, value]}
 			<li class:active={filter == key}>
@@ -37,18 +43,40 @@
 </div>
 
 <style lang="scss">
+	.sectionFilter {
+		order: 3;
+		display: grid;
+		width: 100%;
+		text-align: center;
+		row-gap: 0.25rem;
+		@media screen and (min-width: 768px) {
+			grid-area: bottom;
+		}
+		@media screen and (min-width: 1555px) {
+			order: unset;
+			grid-area: unset;
+
+		}
+	}
+	label {
+		@media screen and (min-width: 1555px) {
+			display: none;
+		}
+	}
+
 	ul {
+		display: none;
 		list-style: none;
 		// display: grid;
-		display: flex;
+		@media screen and (min-width: 1555px) {
+			display: flex;
+		}
 		li {
-			width: 7.5rem;
-			padding: 1rem 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			position: relative;
-            transition: all 300ms;
+			transition: all 300ms;
 			&::after {
 				position: absolute;
 				content: '';
@@ -58,11 +86,13 @@
 				height: 1px;
 				border-radius: 4px;
 				background-color: var(--blue-grey-300);
-                transition: all 300ms;
+				transition: all 300ms;
 			}
 			button {
-                transition: all 300ms;
-                background: none;
+				width: 7.5rem;
+				padding: 1rem 0;
+				transition: all 300ms;
+				background: none;
 				border: none;
 				outline: none;
 				color: var(--blue-grey-300);
@@ -70,16 +100,24 @@
 				cursor: pointer;
 			}
 			&.active {
-                button {
-                    color: var(--blue-grey-900);
-                    font-weight: 600;
+				button {
+					color: var(--blue-grey-900);
+					font-weight: 600;
 				}
-				&::after {                    
-                    height: 3px;
-                    bottom: -1px;
+				&::after {
+					height: 3px;
+					bottom: -1px;
 					background-color: var(--magenta-600);
 				}
 			}
+		}
+	}
+	select {
+		text-align: center;
+		font-size: 1rem;
+		padding: 0.25rem 0;
+		@media screen and (min-width: 1555px) {
+			display: none;
 		}
 	}
 </style>

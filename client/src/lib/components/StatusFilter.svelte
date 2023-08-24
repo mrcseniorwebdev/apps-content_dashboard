@@ -1,54 +1,45 @@
 <script>
-	import { severityFilter } from '$lib/stores/selectedItemStore.js';
+	import { statusFilter } from '$lib/stores/selectedItemStore.js';
 
 	let filter;
-	severityFilter.subscribe((elem) => {
+	statusFilter.subscribe((elem) => {
 		filter = elem;
 	});
 
 	const handleFilterChange = (key) => {
 		console.log({ key });
-		severityFilter.update((n) => key);
+		statusFilter.update((n) => key);
 	};
 
-	console.log({ severityFilter: filter });
+	console.log({ statusFilter: filter });
 </script>
 
-<div class="severityFilter">
-	<label for="severityFilter">Severity:</label>
-
-	<select
-		id="severityFilter"
-		bind:value={filter}
-		on:change={(e) => handleFilterChange(e.target.value)}
-	>
+<div class="statusFilter">
+	<label for="statusFilter">Status:</label>
+	<select id="statusFilter" bind:value={filter} on:change={(e) => handleFilterChange(e.target.value)}>
 		<option value="all">All</option>
-		<option value="2">Breaking</option>
-		<option value="1">Timely</option>
-		<option value="0">Regular</option>
+		<option value="1">Published</option>
+		<option value="0">Draft</option>
 	</select>
 	<ul>
 		<li class:active={filter == 'all'}>
 			<button on:click={() => handleFilterChange('all')}> All </button>
 		</li>
-		<li class:active={filter == 2}>
-			<button on:click={() => handleFilterChange(2)}> Breaking </button>
-		</li>
 		<li class:active={filter == 1}>
-			<button on:click={() => handleFilterChange(1)}> Timely </button>
+			<button on:click={() => handleFilterChange(1)}> Published </button>
 		</li>
 		<li class:active={filter == 0}>
-			<button on:click={() => handleFilterChange(0)}> Regular </button>
+			<button on:click={() => handleFilterChange(0)}> Draft </button>
 		</li>
 	</ul>
 </div>
 
 <style lang="scss">
-	.severityFilter {
+	.statusFilter{
 		display: grid;
-		// width: 100%;
+		width: 100%;
 		text-align: center;
-		row-gap: 0.25rem;
+		row-gap: .25rem;
 		label {
 			@media screen and (min-width: 1555px) {
 				display: none;
@@ -56,9 +47,9 @@
 		}
 	}
 	ul {
-		display: none;
 		list-style: none;
 		// display: grid;
+		display: none;
 		@media screen and (min-width: 1555px) {
 			display: flex;
 		}
@@ -103,11 +94,14 @@
 			}
 		}
 	}
-
 	select {
 		text-align: center;
 		font-size: 1rem;
-		padding: 0.25rem 0;
+		padding: .25rem 0;
+		option{
+			text-align: center;
+			
+		}
 		@media screen and (min-width: 1555px) {
 			display: none;
 		}

@@ -12,7 +12,7 @@ const getData = async () => {
     try {
         //generate unix time date 3 days prior from this point
         //then delete anything in the queue that is less than that
-        const threeDaysAgo = subDays(new Date(), 3)
+        const threeDaysAgo = subDays(new Date(), 5)
         const threeDaysAgoUnixTime = getUnixTime(threeDaysAgo)
 
         conn = await pool.getConnection()
@@ -25,7 +25,7 @@ const getData = async () => {
     }
     finally {
         if (conn) {
-            console.log('ending db conn...')
+            console.log('ending db conn -- get_content ...')
             await conn.end()
         }
         if (noData) {

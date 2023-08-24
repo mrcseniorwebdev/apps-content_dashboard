@@ -8,11 +8,15 @@ import { getUserData } from './utils/db'
 const privateKey = fs.readFileSync(`../client/src/lib/jwt.key`)
 console.log(privateKey)
 
+const callbackUrlDomain =
+	process.env.NODE_ENV === 'dev' ? 'http://localhost:5173' : 'https://apps.mrc.org';
+console.log({ callbackUrlDomain });
+
 //initalize 0Auth2 google client
 export const oauth2client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
-    "https://apps.mrc.org/contentdashboard/auth/callback/google"
+    `${callbackUrlDomain}/contentdashboard/auth/callback/google`
 )
 
 //generate the url endpoint we will use to contact google

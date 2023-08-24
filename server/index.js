@@ -6,11 +6,17 @@ const app = express()
 require('express-async-errors')
 
 const server = createServer(app);
-const io = socketIo(server, { cors: { origin: "*" }, path: '/contentdashboard/socketio' }); // you can change the cors to your own domain
+
+const socketIOconfig = { cors: { origin: "*" },  }
+if(process.env.NODE_ENV !== 'dev'){
+    socketIOconfig.path = '/contentdashboard/socketio'
+}
+const io = socketIo(server, socketIOconfig); // you can change the cors to your own domain
 
 
 const postRouter = require('./controllers/post')
 const userRouter = require('./controllers/users')
+const rolesRouter = require('./controllers/roles')
 
 const cors = require('cors')
 const morgan = require('morgan')
@@ -38,6 +44,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/contentdashboard/api/post', postRouter)
+app.use('/contentdashboard/api/roles', rolesRouter)
 app.use('/contentdashboard/api/user', userRouter)
 
 
