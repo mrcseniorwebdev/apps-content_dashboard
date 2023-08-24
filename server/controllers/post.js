@@ -30,12 +30,13 @@ postRouter.post("/", async (req, res) => {
         console.log({ "rows.length": rows.length });
         if (rows.length) {
             const update = await conn.query(
-                "UPDATE content_queue SET severity = ?, published = ?, unix_time = ?, title = ? WHERE section = ? AND nid = ?",
+                "UPDATE content_queue SET severity = ?, published = ?, unix_time = ?, title = ?, author = ? WHERE section = ? AND nid = ?",
                 [
                     body.severity,
                     body.state,
                     body.unix_time,
                     body.title,
+                    body.author,
                     body.section,
                     body.nid,
                 ]
