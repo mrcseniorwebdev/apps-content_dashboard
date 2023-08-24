@@ -322,7 +322,7 @@
 						grid-area: unset;
 					}
 					.divisionCircle {
-						width: 18px;
+						width: 14px;
 						aspect-ratio: 1;
 						border-radius: 100%;
 						background-color: black;
