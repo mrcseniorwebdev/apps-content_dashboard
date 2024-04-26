@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	// import NewAdSvg from './svgs/NewAdSvg.svelte';
+	import NewAdSvg from './svgs/NewAdSvg.svelte';
 	// import Trash21Svg from './svgs/Trash21Svg.svelte';
 	import roleCheck from '$lib/utils/arrayIntersect.js';
 
@@ -173,10 +173,12 @@
 			</div>
 		{/each}
 	</div>
-	<!-- <div class="users--newuser">
-		<input bind:value={newUser} placeholder="Enter Email..." />
-		<button on:click={addNewUser} class=""><NewAdSvg /><span>Grant Access</span></button>
-	</div> -->
+	{#if roleCheck(loggedInUserRoles, ['admin'])}
+		<div class="users--newuser">
+			<input bind:value={newUser} placeholder="Enter Email..." />
+			<button on:click={addNewUser} class=""><NewAdSvg /><span>Grant Access</span></button>
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
