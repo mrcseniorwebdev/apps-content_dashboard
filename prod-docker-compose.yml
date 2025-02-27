@@ -21,7 +21,7 @@ services:
       context: ./server
       dockerfile: Dockerfile.prod
     ports:
-      - 3111:3001
+      - 3222:3001
     command: npm start
     env_file: ./server/.env
     volumes:
